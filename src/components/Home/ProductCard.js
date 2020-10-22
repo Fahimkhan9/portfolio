@@ -1,7 +1,8 @@
 import React from 'react'
-
-function ProductDetail({bdata}) {
+import {Link } from 'react-router-dom'
+function ProductCard({bdata}) {
     return (
+      <Link to={`/productdetail/${bdata.id}`}>
         <div class="card col-md-4 text-center " >
         <div class="card-body">
             <img style={{height:'80px'}} src={bdata.imgofproduct} alt=""/>
@@ -11,7 +12,9 @@ function ProductDetail({bdata}) {
       
         </div>
       </div>
+      </Link>
+      
     )
 }
 
-export default ProductDetail
+export default ProductCard
