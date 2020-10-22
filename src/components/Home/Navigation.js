@@ -20,7 +20,7 @@ function Navigation() {
             <NavLink class="nav-link ml-5" to="/">Home <span class="sr-only">(current)</span></NavLink>
           </li> */}
           <li class="nav-item">
-            <NavLink class="nav-link btn  ml-5" to="/">Login</NavLink>
+            <NavLink class="nav-link btn  ml-5" to="/checkout">Login</NavLink>
           </li>
           <li class="nav-item">
             <NavLink class="nav-link btn btn-danger px-3 ml-5" to="/">Sign Up</NavLink>
