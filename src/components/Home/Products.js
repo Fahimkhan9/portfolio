@@ -3,21 +3,21 @@ import { useState } from 'react'
 import breakfastdata from './breakfast'
 import dinnerdata from './dinner'
 import lunchdata from './lunch'
-import ProductDetail from './ProductCard'
+import ProductCard from './ProductCard'
 import './Products.css'
 
 function Products() {
     const [productsbycategory,setProductbycategory] = useState([])
    
 useEffect(() => {
-fetch('http://localhost:5000/getproductbycategory')
+fetch(`http://localhost:5000/getproductbycategory?category=breakfast`)
 .then(res=> res.json())
 .then(data => setProductbycategory(data))
 },[])
 
 
 
-//  console.log(productsbycategory);
+
     return (
         <div>
  <ul>
@@ -29,9 +29,15 @@ fetch('http://localhost:5000/getproductbycategory')
  <div className="container">
      <div className="row">
      {
-     productsbycategory.length ===0 ? <p>loading</p>
+     productsbycategory.length === 0 ?
+     <div className="text-center">
+<div class="spinner-grow" style={{width:'3rem',height:"3rem"}} role="status">
+     <span class="sr-only">Loading...</span>
+   </div>
+     </div>
+     
      :
-     productsbycategory.map(bdata => <ProductDetail bdata={bdata}/>)
+     productsbycategory.map(bdata => <ProductCard key={bdata.id} bdata={bdata}/>)
  }
      </div>
  </div>

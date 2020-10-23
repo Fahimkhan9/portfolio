@@ -1,10 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../resources/logo2.png'
+import { FaShoppingCart } from 'react-icons/fa';
 
 
-
-function Navigation() {
+function Navigation({cart}) {
+  console.log(cart);
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink class="navbar-brand ml-5" to="/">
@@ -16,11 +17,11 @@ function Navigation() {
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          {/* <li class="nav-item active">
-            <NavLink class="nav-link ml-5" to="/">Home <span class="sr-only">(current)</span></NavLink>
-          </li> */}
+          <li class="nav-item ">
+            <NavLink class="nav-link ml-5" to="/checkout"> <FaShoppingCart/> </NavLink>
+          </li>
           <li class="nav-item">
-            <NavLink class="nav-link btn  ml-5" to="/checkout">Login</NavLink>
+            <NavLink class="nav-link btn  ml-5" to="/login">Login</NavLink>
           </li>
           <li class="nav-item">
             <NavLink class="nav-link btn btn-danger px-3 ml-5" to="/">Sign Up</NavLink>

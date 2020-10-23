@@ -3,10 +3,10 @@ import HeaderMain from './HeaderMain'
 import Navigation from './Navigation'
 import Products from './Products'
 
-function Home() {
+function Home({cart}) {
     return (
         <div>
-            <Navigation/>
+            <Navigation cart={cart}/>
             <HeaderMain/>
             <Products/>
         </div>

@@ -1,27 +1,31 @@
-import React from 'react'
-import { useState } from 'react'
-import OrderCart from './OrderCart'
-import OrderedItemCard from './OrderedItemCard'
+import React from "react";
+import Navigation from '../Home/Navigation'
+import CheckoutForm from "./CheckoutForm";
+import OrderCart from "./OrderCart";
+import OrderedItemCard from "./OrderedItemCard";
 
-function Checkout({cart}) {
-    const [quantity,setQuantity] = useState(1)
-    const [quantityofproduct,SetQuantityofproduct] = useState(0)
-const hanldequantity = (cartdata) => {
-console.log(cartdata.price.slice(1));
-SetQuantityofproduct(()=> cartdata.price.slice(1))
-}
-
-    return (
-        <div>
-         {
-                cart.map(ordercartdata => <OrderedItemCard ordercartdata={ordercartdata} quantity={quantity} setQuantity={setQuantity} hanldequantity={hanldequantity} />)
-
-
-            }
-            <OrderCart cart={cart} quantity={quantity} setQuantity={setQuantity} quantityofproduct={quantityofproduct} />
-         
+function Checkout({ cart, totalamount }) {
+  return (
+    <div>
+        <Navigation/>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6">
+                <h2>Edit Delivery Details</h2>
+<hr/>
+<CheckoutForm/>
+                </div>
+                <div className="col-md-6">
+                {cart.map((ordercartdata) => (
+        <OrderedItemCard key={ordercartdata.id} ordercartdata={ordercartdata} />
+      ))}
+      <OrderCart totalamount={totalamount} />
+                </div>
+            </div>
         </div>
-    )
+     
+    </div>
+  );
 }
 
-export default Checkout
+export default Checkout;

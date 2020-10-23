@@ -18,9 +18,9 @@ fetch(`http://localhost:5000/getproductbyid?id=${id}`)
     console.log(productdetail)
  
     return (
-        <div>
+        <div> 
     <Navigation/>
-  <ProductDetailMain productdetail={productdetail} addtocart={addtocart}/>
+  <ProductDetailMain productdetail={productdetail} addtocart={addtocart} />
         </div>
     )
 }
