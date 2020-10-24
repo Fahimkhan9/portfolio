@@ -5,7 +5,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 
 function Navigation({cart}) {
-  console.log(cart);
+  console.log(cart,"cart");
+  // console.log(cart.length,"nav");
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink class="navbar-brand ml-5" to="/">

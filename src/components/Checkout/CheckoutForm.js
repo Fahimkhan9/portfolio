@@ -1,47 +1,74 @@
-import React from 'react'
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 
-function CheckoutForm() {
-    const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
-  
-    console.log(watch("example"))
+function CheckoutForm({setOrderdata}) {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  setOrderdata(data)
+  }
 
-    return (
-      
-              <form onSubmit={handleSubmit(onSubmit)}>
-<div className="form-group">
-<input name="delivertodoor" className="form-control" ref={register({ required: true })} />
-    
-    {errors.delivertodoor && <span>Delivery To Door is required</span>}
-</div>
-<div className="form-group">
-<input name="roadno" className="form-control" ref={register({ required: true })} />
-    
-    {errors.roadno && <span>Road No. is required</span>}
-</div>
-<div className="form-group">
-<input name="flat" className="form-control" ref={register({ required: true })} />
-    
-    {errors.flat && <span>Flat,Suide or Floor is required</span>}
-</div>
-<div className="form-group">
-<input name="businessname" className="form-control" ref={register({ required: true })} />
-    
-    {errors.businessname && <span>Business Name is required</span>}
-</div>
-<div className="form-group">
-<textarea name="address" className="form-control"  rows="3" ref={register({ required: true })} ></textarea>
+  console.log(watch("example"));
 
-    
-    {errors.address && <span>Address  is required</span>}
-</div>
- 
-      
-    <button className="btn btn-danger btn-block" type="submit">Save & Continue</button>
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-group">
+        <input
+          name="delivertodoor"
+          className="form-control"
+          ref={register({ required: true })}
+placeholder="Deliver to Door"
+        />
+
+        {errors.delivertodoor && <span className="text-danger">Delivery To Door is required</span>}
+      </div>
+      <div className="form-group">
+        <input
+          name="roadno"
+          className="form-control"
+          ref={register({ required: true })}
+placeholder="Road No."
+        />
+
+        {errors.roadno && <span className="text-danger">Road No. is required</span>}
+      </div>
+      <div className="form-group">
+        <input
+          name="flat"
+          className="form-control"
+          ref={register({ required: true })}
+placeholder="Flat,Suite or Flooe"
+        />
+
+        {errors.flat && <span className="text-danger">Flat,Suide or Floor is required</span>}
+      </div>
+      <div className="form-group">
+        <input
+          name="businessname"
+          className="form-control"
+          ref={register({ required: true })}
+placeholder="Business Name"
+        />
+
+        {errors.businessname && <span className="text-danger">Business Name is required</span>}
+      </div>
+      <div className="form-group">
+        <textarea
+          name="address"
+          className="form-control"
+          rows="3"
+          ref={register({ required: true })}
+          placeholder="Address"
+        ></textarea>
+
+        {errors.address && <span className="text-danger">Address is required</span>}
+      </div>
+
+      <button className="btn btn-danger btn-block" type="submit">
+        Save & Continue
+      </button>
     </form>
-      
-    )
+  );
 }
 
-export default CheckoutForm
+export default CheckoutForm;

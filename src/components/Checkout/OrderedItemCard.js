@@ -1,15 +1,25 @@
 import React from 'react'
 
-function OrderedItemCard({ordercartdata}) {
+function OrderedItemCard({ordercartdata,productquantity}) {
+  
     return (
-        <div class="card" style={{width:"18rem"}}>
-        <div class="card-body">
+      <div class="card mb-3" style={{maxWidth:"540px"}}>
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src={ordercartdata.imgofproduct} class="card-img" alt="..."/>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
     <h5 class="card-title">{ordercartdata.nameofproduct}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{ordercartdata.price}</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-       
+    <p class="card-text">{ordercartdata.desoproduct}</p>
+    {/* <p class="card-text"><small class="text-muted">{ordercartdata.price}</small></p>
+     */}
+     <h6 className="card-text">Price: {ordercartdata.price}</h6>
+    <h6>Quantity : {productquantity}</h6>
+          </div>
         </div>
       </div>
+    </div>
     )
 }
 

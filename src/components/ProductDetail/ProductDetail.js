@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import Navigation from '../Home/Navigation'
 import ProductDetailMain from './ProductDetailMain'
 
-function ProductDetail({addtocart}) {
+function ProductDetail({addtocart,productquantity,setProductquantity}) {
     const {id} = useParams()
     const [productdetail,setProductdetail] = useState([])
 
@@ -18,9 +18,9 @@ fetch(`http://localhost:5000/getproductbyid?id=${id}`)
     console.log(productdetail)
  
     return (
-        <div> 
+        <div>   
     <Navigation/>
-  <ProductDetailMain productdetail={productdetail} addtocart={addtocart} />
+  <ProductDetailMain productquantity={productquantity} setProductquantity={setProductquantity} productdetail={productdetail} addtocart={addtocart} />
         </div>
     )
 }

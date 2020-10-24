@@ -7,11 +7,14 @@ import ProductDetail from "./components/ProductDetail/ProductDetail";
 import { useState } from "react";
 import Checkout from "./components/Checkout/Checkout";
 import Login from "./components/Login/Login";
+import OrderComplete from "./components/OrderComplete/OrderComplete";
 
 //232C34
 function App() {
+  const [productquantity,setProductquantity] = useState(1)
   const [cart, setCart] = useState([]);
   const [totalamount, setTotalamount] = useState([]);
+  const [orderdata,setOrderdata] = useState()
 
   const addtocart = (cartdata, quantity) => {
     setCart([...cart, cartdata]);
@@ -21,7 +24,8 @@ function App() {
     ]);
     console.log(parseFloat(cartdata.price.slice(1)));
   };
-  console.log(cart);
+  // console.log(cart.length, 'length');
+  console.log(cart,"app");
   console.log(totalamount);
   return (
     <Router>
@@ -30,13 +34,16 @@ function App() {
           <Home cart={cart} />
         </Route>
         <Route exact path="/productdetail/:id">
-          <ProductDetail addtocart={addtocart} />
+          <ProductDetail productquantity={productquantity} setProductquantity={setProductquantity} addtocart={addtocart} />
         </Route>
         <Route exact path="/checkout">
-          <Checkout cart={cart} totalamount={totalamount} />
+          <Checkout productquantity={productquantity} cart={cart} totalamount={totalamount} orderdata={orderdata} setOrderdata={setOrderdata} />
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/order-complete">
+          <OrderComplete orderdata={orderdata}/>
         </Route>
       </Switch>
     </Router>

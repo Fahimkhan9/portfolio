@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 
-function ProductDetailMain({productdetail,addtocart}) {
+function ProductDetailMain({productdetail,addtocart,productquantity,setProductquantity}) {
     const [clickcount,setClickcount] = useState(0)
-    const [productquantity,setProductquantity] = useState(1)
+
     console.log(clickcount);
     return (
         <div className="container mt-5">
@@ -19,7 +19,7 @@ function ProductDetailMain({productdetail,addtocart}) {
     <button className="btn" disabled>{productquantity}</button>
     <button className="btn" onClick={() => setProductquantity(pre => pre + 1)}>+</button>
     </div>
-   
+    
     </div>
   
 
